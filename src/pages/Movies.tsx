@@ -1,5 +1,7 @@
-import React from 'react';
+import Movieslist from '../components/lists/Movieslist';
 
-export default function Movies() {
-	return <div>Movies</div>;
-}
+const Movies = () => {
+	return <Movieslist />;
+};
+
+export default Movies;

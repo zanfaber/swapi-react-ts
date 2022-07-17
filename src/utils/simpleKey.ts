@@ -1,5 +1,3 @@
-import { randomBytes } from 'crypto';
-
 export default function simpleKey(string: String) {
 	const regex = /(\d*)\/$/i;
 	const result = string.match(regex);

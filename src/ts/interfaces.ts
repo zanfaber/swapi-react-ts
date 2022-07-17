@@ -17,4 +17,21 @@ interface Character {
 	url: String;
 }
 
-export type { Character };
+interface Movie {
+	title: String;
+	episode_id: Number;
+	opening_crawl: String;
+	director: String;
+	producer: String;
+	release_date: String;
+	characters: Array<String>;
+	planets: Array<String>;
+	starships: Array<String>;
+	vehicles: Array<String>;
+	species: Array<String>;
+	created: String;
+	edited: String;
+	url: String;
+}
+
+export type { Character, Movie };

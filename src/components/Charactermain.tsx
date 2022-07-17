@@ -8,7 +8,6 @@ type Props = {
 };
 
 const Charactermain: React.FC<Props> = ({ character }) => {
-	console.log(character);
 	return (
 		<div>
 			<h1>{character.name}</h1>

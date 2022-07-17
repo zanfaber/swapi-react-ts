@@ -13,7 +13,6 @@ const Peoplelist = () => {
 
 	// to prevent response if unmounted before commpleting fetch...
 	const cancelRequest = useRef<boolean>(false);
-
 	useEffect(() => {
 		cancelRequest.current = false;
 

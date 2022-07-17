@@ -1,30 +1,37 @@
-import { useEffect, useState, useRef } from 'react';
-import { Loader } from '../ui/Loader';
-import { Movie } from '../../ts/interfaces';
+import React, { useState, useEffect, useRef } from 'react';
 
-import simpleKeyFromUrl from '../../utils/getSimpleKey';
-import getResourceId from '../../utils/getResourceId';
 import Cardwrapper from '../ui/Cardwrapper';
 import Card from '../ui/Card';
 import Cardmovie from '../ui/Cardmovie';
+import { Loader } from '../ui/Loader';
 
-const Movieslist = () => {
-	const [movies, setMovies] = useState([] as Movie[]);
+import getResourceId from '../../utils/getResourceId';
+import simpleKeyFromUrl from '../../utils/getSimpleKey';
+
+import { Movie as MovieInterface } from '../../ts/interfaces';
+
+type Props = {
+	movies: String[];
+};
+
+const Charactermovies: React.FC<Props> = ({ movies }) => {
+	const [allMovies, setAllMovies] = useState([] as MovieInterface[]);
 
 	// to prevent response if unmounted before commpleting fetch...
 	const cancelRequest = useRef<boolean>(false);
+
 	useEffect(() => {
 		cancelRequest.current = false;
 
 		const fetchData = async () => {
 			try {
-				const response = await fetch('https://swapi.dev/api/films/');
+				const response = await fetch(`https://swapi.dev/api/films/`);
 				if (!response.ok) {
 					throw new Error(response.statusText);
 				}
 				const data = await response.json();
 				if (cancelRequest.current) return;
-				setMovies(data.results);
+				setAllMovies(data.results);
 			} catch (error) {
 				if (cancelRequest.current) return;
 			}
@@ -38,17 +45,19 @@ const Movieslist = () => {
 
 	return (
 		<>
-			{movies && movies.length > 0 ? (
+			{allMovies && allMovies.length > 0 ? (
 				<Cardwrapper>
 					{movies.map((movie) => {
+						const movieObj = allMovies.find((o) => o.url === movie);
+						const title = movieObj ? movieObj.title : movie;
 						// not the best but quick
 						// TODO find better solution... maybe a library?
-						const key = simpleKeyFromUrl(movie.url.toString());
-						const movieId = getResourceId(movie.url);
+						const key = simpleKeyFromUrl(movie.toString());
+						const movieId = getResourceId(movie.toString());
 						return (
 							<Card key={key}>
 								<Cardmovie
-									title={movie.title}
+									title={title}
 									url={movieId ? `/movies/${movieId}` : '#'}
 								/>
 							</Card>
@@ -62,4 +71,4 @@ const Movieslist = () => {
 	);
 };
 
-export default Movieslist;
+export default Charactermovies;

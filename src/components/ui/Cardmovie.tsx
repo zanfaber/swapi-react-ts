@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link, To } from 'react-router-dom';
-import { Url } from 'url';
 
 type Props = {
 	title: String;

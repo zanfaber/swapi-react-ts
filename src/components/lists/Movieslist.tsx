@@ -50,7 +50,7 @@ const Movieslist = () => {
 							<Card key={key}>
 								<Cardmovie
 									title={movie.title}
-									url={movieId ? `/movie/${movieId}` : '#'}
+									url={movieId ? `/movies/${movieId}` : '#'}
 								/>
 							</Card>
 						);

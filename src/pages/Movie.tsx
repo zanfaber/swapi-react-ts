@@ -33,7 +33,7 @@ export default function Movie() {
 		return () => {
 			cancelRequest.current = true;
 		};
-	}, []);
+	}, [movieId]);
 
 	return (
 		<>

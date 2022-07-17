@@ -4,12 +4,17 @@ A simple implementation of [SWApi.dev](https://swapi.dev/) with [Create React Ap
 
 ## To do
 
-- [x]  Routing logic  
-- [x]  List characters  
-- [x]  List movies  
-- [ ] Character card  
-- [ ] Film card  
+- [x] Routing logic  
+- [x] List characters  
+- [x] List movies  
+- [x] Movie card  
+- [x] Character card  
+- [ ] Movie page  
+- [ ] Character page  
 - [ ] Basic styling with Tailwind  
+- [ ] Different UI/functionality for home?
+- [ ] Pagination for people
+- [ ] Planets ?
 - [ ] Fetch logic of components as external function or, better, custom hook  
 - [ ] Better solution for list keys  
 

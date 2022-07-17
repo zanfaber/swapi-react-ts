@@ -2,7 +2,11 @@ import { useEffect, useState, useRef } from 'react';
 import { Loader } from '../ui/Loader';
 import { Movie } from '../../ts/interfaces';
 
-import simpleKeyFromUrl from '../../utils/simpleKey';
+import simpleKeyFromUrl from '../../utils/getSimpleKey';
+import getResourceId from '../../utils/getResourceId';
+import Cardwrapper from '../ui/Cardwrapper';
+import Card from '../ui/Card';
+import Cardmovie from '../ui/Cardmovie';
 
 const Movieslist = () => {
 	const [movies, setMovies] = useState([] as Movie[]);
@@ -36,18 +40,22 @@ const Movieslist = () => {
 	return (
 		<>
 			{movies && movies.length > 0 ? (
-				<ul>
+				<Cardwrapper>
 					{movies.map((movie) => {
 						// not the best but quick
 						// TODO find better solution... maybe a library?
-						const key = simpleKeyFromUrl(movie.url);
+						const key = simpleKeyFromUrl(movie.url.toString());
+						const movieId = getResourceId(movie.url);
 						return (
-							<li key={key}>
-								<h2>{movie.title}</h2>
-							</li>
+							<Card key={key}>
+								<Cardmovie
+									title={movie.title}
+									url={movieId ? `/movie/${movieId}` : '#'}
+								/>
+							</Card>
 						);
 					})}
-				</ul>
+				</Cardwrapper>
 			) : (
 				<Loader />
 			)}

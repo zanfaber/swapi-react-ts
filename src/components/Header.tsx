@@ -5,7 +5,7 @@ const Header = () => {
 	return (
 		<header>
 			<Link to="/">
-				<h1>SWApi</h1>
+				<span>Star Wars Api</span>
 			</Link>
 			<Navbar />
 		</header>

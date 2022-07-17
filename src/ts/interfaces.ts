@@ -1,3 +1,5 @@
+import { To } from 'react-router-dom';
+
 interface Character {
 	name: String;
 	height: String;
@@ -14,7 +16,7 @@ interface Character {
 	starships: Array<String>;
 	created: String;
 	edited: String;
-	url: String;
+	url: To;
 }
 
 interface Movie {
@@ -31,7 +33,7 @@ interface Movie {
 	species: Array<String>;
 	created: String;
 	edited: String;
-	url: String;
+	url: To;
 }
 
 export type { Character, Movie };

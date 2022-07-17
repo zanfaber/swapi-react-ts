@@ -2,7 +2,11 @@ import { useEffect, useState, useRef } from 'react';
 import { Loader } from '../ui/Loader';
 import { Character } from '../../ts/interfaces';
 
-import simpleKeyFromUrl from '../../utils/simpleKey';
+import simpleKeyFromUrl from '../../utils/getSimpleKey';
+import getResourceId from '../../utils/getResourceId';
+import Cardwrapper from '../ui/Cardwrapper';
+import Card from '../ui/Card';
+import Cardcharacter from '../ui/Cardcharacter';
 
 const Peoplelist = () => {
 	const [people, setPeople] = useState([] as Character[]);
@@ -36,18 +40,25 @@ const Peoplelist = () => {
 	return (
 		<>
 			{people && people.length > 0 ? (
-				<ul>
-					{people.map((character) => {
-						// not the best but quick
-						// TODO find better solution... maybe a library?
-						const key = simpleKeyFromUrl(character.url);
-						return (
-							<li key={key}>
-								<h2>{character.name}</h2>
-							</li>
-						);
-					})}
-				</ul>
+				<>
+					<h1>People</h1>
+					<Cardwrapper>
+						{people.map((character) => {
+							// not the best but quick
+							// TODO find better solution... maybe a library?
+							const key = simpleKeyFromUrl(character.url.toString());
+							const characterId = getResourceId(character.url);
+							return (
+								<Card key={key}>
+									<Cardcharacter
+										name={character.name}
+										url={characterId ? `/people/${characterId}` : '#'}
+									/>
+								</Card>
+							);
+						})}
+					</Cardwrapper>
+				</>
 			) : (
 				<Loader />
 			)}

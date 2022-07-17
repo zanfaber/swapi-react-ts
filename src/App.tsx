@@ -1,12 +1,13 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
+import Home from './routes/Home';
+import People from './routes/People';
+import Character from './routes/Character';
+import Movies from './routes/Movies';
+import Movie from './routes/Movie';
+import Header from './components/Header';
+
 import './App.css';
-import Home from './routes/home';
-import People from './routes/people';
-import Character from './routes/character';
-import Movies from './routes/movies';
-import Movie from './routes/movie';
-import Header from './components/ui/header';
 
 function App() {
 	return (

@@ -40,7 +40,9 @@ const Peoplelist = () => {
 		<>
 			{people && people.length > 0 ? (
 				<>
-					<h1>People</h1>
+					<h1 className="p-4 pb-2 text-4xl font-extrabold text-zinc-700">
+						People
+					</h1>
 					<Cardwrapper>
 						{people.map((character) => {
 							// not the best but quick

@@ -8,9 +8,11 @@ type Props = {
 
 const Cardcharacter: React.FC<Props> = ({ name, url }) => {
 	return (
-		<div>
-			<Link to={url}>{name}</Link>
-		</div>
+		<Link
+			to={url}
+			className="flex h-full items-center rounded bg-zinc-900 p-4 outline-0 ring-yellow-400 transition-colors hover:bg-black focus:bg-black focus:ring-2 ">
+			{name}
+		</Link>
 	);
 };
 

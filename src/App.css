@@ -1,3 +1,36 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+body {
+	@apply bg-zinc-800;
+	@apply text-white;
+	overflow-y: scroll;
+}
+
+@layer components {
+	.char-dl {
+		@apply grid grid-cols-3 gap-4 sm:grid-cols-6 md:grid-cols-9 xl:grid-cols-12;
+	}
+	.char-dt {
+		@apply col-span-1 font-semibold leading-tight text-zinc-500;
+	}
+	.char-dd {
+		@apply col-span-2 leading-tight;
+	}
+	.movie-dl {
+		@apply grid grid-cols-3 gap-4 md:pb-2;
+	}
+	.movie-dt {
+		@apply char-dt;
+	}
+	.movie-dd {
+		@apply char-dd;
+	}
+}
+
+@layer utilities {
+	.text-crawl {
+		transform: perspective(400px) rotateX(20deg);
+	}
+}

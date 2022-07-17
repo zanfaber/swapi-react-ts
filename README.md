@@ -4,14 +4,14 @@ A simple implementation of [SWApi.dev](https://swapi.dev/) with [Create React Ap
 
 ## To do
 
-[x] Routing logic
-[x] List characters
-[_] List movies
-[_] Character card
-[_] Film card
-[_] Basic styling with Tailwind
-[_] Fetch logic of components as external function or, better, custom hook
-[_] Better solution for list keys
+[X] Routing logic  
+[X] List characters  
+[] List movies  
+[] Character card  
+[] Film card  
+[] Basic styling with Tailwind  
+[] Fetch logic of components as external function or, better, custom hook  
+[] Better solution for list keys  
 
 ## Available Scripts
 

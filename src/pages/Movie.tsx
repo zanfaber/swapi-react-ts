@@ -22,7 +22,6 @@ export default function Movie() {
 				}
 				const data = await response.json();
 				if (cancelRequest.current) return;
-				console.log(data);
 				setMovie(data);
 			} catch (error) {
 				if (cancelRequest.current) return;
@@ -33,7 +32,7 @@ export default function Movie() {
 		return () => {
 			cancelRequest.current = true;
 		};
-	}, []);
+	}, [movieId]);
 
 	return (
 		<>

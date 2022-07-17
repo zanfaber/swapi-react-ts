@@ -1,6 +1,11 @@
-# Swapi React Ts
+# Star Wars api - React & Ts
 
-A simple implementation of [SWApi.dev](https://swapi.dev/) with [Create React App](https://github.com/facebook/create-react-app) and Typescript
+A simple implementation of [SWApi.dev](https://swapi.dev/) with [Create React App](https://github.com/facebook/create-react-app) and Typescript.
+
+  - React (Create-react-app)
+  - Typescript
+  - React Router
+  - Tailwind ( + prettier-plugin-tailwindcss )
 
 ## To do
 
@@ -11,16 +16,17 @@ A simple implementation of [SWApi.dev](https://swapi.dev/) with [Create React Ap
 - [x] Character card  
 - [x] Movie page  
 - [x] Character page  
-- [ ] Basic styling with Tailwind  
+- [x] Basic styling with Tailwind  
 - [ ] Different UI/functionality for home? Search?
 - [ ] Pagination for People
 - [ ] Back button
 - [ ] Components for People and Movies infos
+- [ ] Advanced styling and Tailwind customization
 - [ ] Planets ?
 - [ ] API endpoint as constant in single external file
 - [ ] Fetch logic of components as external function or, better, custom hook  
 - [ ] Implement Abort Controller for fetch calls
-- [ ] Better solution for list keys  
+- [ ] Better solution for list keys (library?)
 
 ## Available Scripts
 

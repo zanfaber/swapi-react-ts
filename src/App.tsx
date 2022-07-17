@@ -7,7 +7,7 @@ function App() {
 	return (
 		<>
 			<Header />
-			<main>
+			<main className="mx-auto max-w-7xl">
 				<Router />
 			</main>
 		</>

@@ -39,22 +39,27 @@ const Movieslist = () => {
 	return (
 		<>
 			{movies && movies.length > 0 ? (
-				<Cardwrapper>
-					{movies.map((movie) => {
-						// not the best but quick
-						// TODO find better solution... maybe a library?
-						const key = simpleKeyFromUrl(movie.url.toString());
-						const movieId = getResourceId(movie.url);
-						return (
-							<Card key={key}>
-								<Cardmovie
-									title={movie.title}
-									url={movieId ? `/movies/${movieId}` : '#'}
-								/>
-							</Card>
-						);
-					})}
-				</Cardwrapper>
+				<>
+					<h1 className="p-4 pb-2 text-4xl font-extrabold text-zinc-700">
+						Movies
+					</h1>
+					<Cardwrapper>
+						{movies.map((movie) => {
+							// not the best but quick
+							// TODO find better solution... maybe a library?
+							const key = simpleKeyFromUrl(movie.url.toString());
+							const movieId = getResourceId(movie.url);
+							return (
+								<Card key={key}>
+									<Cardmovie
+										title={movie.title}
+										url={movieId ? `/movies/${movieId}` : '#'}
+									/>
+								</Card>
+							);
+						})}
+					</Cardwrapper>
+				</>
 			) : (
 				<Loader />
 			)}

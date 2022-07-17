@@ -21,7 +21,7 @@ interface Character {
 
 interface Movie {
 	title: String;
-	episode_id: Number;
+	episode_id: number;
 	opening_crawl: String;
 	director: String;
 	producer: String;

@@ -4,7 +4,23 @@ A simple implementation of [SWApi.dev](https://swapi.dev/) with [Create React Ap
 
 ## To do
 
-...
+- [x] Routing logic  
+- [x] List characters  
+- [x] List movies  
+- [x] Movie card  
+- [x] Character card  
+- [x] Movie page  
+- [x] Character page  
+- [ ] Basic styling with Tailwind  
+- [ ] Different UI/functionality for home? Search?
+- [ ] Pagination for People
+- [ ] Back button
+- [ ] Components for People and Movies infos
+- [ ] Planets ?
+- [ ] API endpoint as constant in single external file
+- [ ] Fetch logic of components as external function or, better, custom hook  
+- [ ] Implement Abort Controller for fetch calls
+- [ ] Better solution for list keys  
 
 ## Available Scripts
 

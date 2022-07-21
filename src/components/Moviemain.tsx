@@ -1,4 +1,5 @@
 import React from 'react';
+import { useNavigate, useNavigationType } from 'react-router-dom';
 
 import { Movie as MovieInterface } from '../ts/interfaces';
 import romanizeNumber from '../utils/romanizeNumber';
@@ -8,8 +9,12 @@ type Props = {
 };
 
 const Moviemain: React.FC<Props> = ({ movie }) => {
+	let navigate = useNavigate();
+	let navtype = useNavigationType();
+
 	return (
 		<div className="mx-auto max-w-prose overflow-hidden p-4">
+			{navtype === 'PUSH' && <button onClick={() => navigate(-1)}>Back</button>}
 			<h1 className="mt-4 text-4xl font-bold">{movie.title}</h1>
 			<h2 className="mb-4 text-2xl font-light text-zinc-500">{`Episode ${romanizeNumber(
 				movie.episode_id

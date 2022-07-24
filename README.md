@@ -22,7 +22,7 @@ _initial requests_
 
 _enhancements_ 
 
-- [ ] Back button
+- [x] Back button
 - [ ] Components for People and Movies infos
 - [x] API endpoint as constant in single external file
 - [ ] Fetch logic of components as external function or, better, custom hook  

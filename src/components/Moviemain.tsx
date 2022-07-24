@@ -1,8 +1,8 @@
 import React from 'react';
 import { useNavigate, useNavigationType } from 'react-router-dom';
 
-import { Movie as MovieInterface } from '../ts/interfaces';
 import romanizeNumber from '../utils/romanizeNumber';
+import { Movie as MovieInterface } from '../ts/interfaces';
 
 type Props = {
 	movie: MovieInterface;

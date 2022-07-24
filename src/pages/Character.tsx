@@ -1,9 +1,10 @@
 import { useState, useEffect, useRef } from 'react';
 import { useParams } from 'react-router-dom';
-import { Loader } from '../components/ui/Loader';
 
-import { Character as CharacterInterface } from '../ts/interfaces';
+import { API_CHARACTER } from '../api/endpoints';
+import { Loader } from '../components/ui/Loader';
 import Charactermain from '../components/Charactermain';
+import { Character as CharacterInterface } from '../ts/interfaces';
 
 export default function Movie() {
 	const { id: characterId } = useParams();
@@ -16,9 +17,7 @@ export default function Movie() {
 
 		const fetchData = async () => {
 			try {
-				const response = await fetch(
-					`https://swapi.dev/api/people/${characterId}`
-				);
+				const response = await fetch(`${API_CHARACTER}${characterId}`);
 				if (!response.ok) {
 					throw new Error(response.statusText);
 				}

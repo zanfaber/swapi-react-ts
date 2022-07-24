@@ -24,7 +24,7 @@ _enhancements_
 
 - [ ] Back button
 - [ ] Components for People and Movies infos
-- [ ] API endpoint as constant in single external file
+- [x] API endpoint as constant in single external file
 - [ ] Fetch logic of components as external function or, better, custom hook  
 - [ ] Implement Abort Controller for fetch calls
 - [ ] Different UI/functionality for home? Search?

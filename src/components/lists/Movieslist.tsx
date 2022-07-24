@@ -7,6 +7,7 @@ import getResourceId from '../../utils/getResourceId';
 import Cardwrapper from '../ui/Cardwrapper';
 import Card from '../ui/Card';
 import Cardmovie from '../ui/Cardmovie';
+import { API_MOVIES } from '../../api/endpoints';
 
 const Movieslist = () => {
 	const [movies, setMovies] = useState([] as Movie[]);
@@ -18,7 +19,7 @@ const Movieslist = () => {
 
 		const fetchData = async () => {
 			try {
-				const response = await fetch('https://swapi.dev/api/films/');
+				const response = await fetch(API_MOVIES);
 				if (!response.ok) {
 					throw new Error(response.statusText);
 				}

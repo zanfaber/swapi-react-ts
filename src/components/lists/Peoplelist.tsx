@@ -1,12 +1,13 @@
 import { useEffect, useState, useRef } from 'react';
-import { Loader } from '../ui/Loader';
-import { Character } from '../../ts/interfaces';
 
+import { API_PEOPLE } from '../../api/endpoints';
 import simpleKeyFromUrl from '../../utils/getSimpleKey';
 import getResourceId from '../../utils/getResourceId';
 import Cardwrapper from '../ui/Cardwrapper';
 import Card from '../ui/Card';
 import Cardcharacter from '../ui/Cardcharacter';
+import { Loader } from '../ui/Loader';
+import { Character } from '../../ts/interfaces';
 
 const Peoplelist = () => {
 	const [people, setPeople] = useState([] as Character[]);
@@ -18,7 +19,7 @@ const Peoplelist = () => {
 
 		const fetchData = async () => {
 			try {
-				const response = await fetch('https://swapi.dev/api/people/');
+				const response = await fetch(API_PEOPLE);
 				if (!response.ok) {
 					throw new Error(response.statusText);
 				}

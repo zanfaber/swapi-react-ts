@@ -2,7 +2,7 @@ import React from 'react';
 import { Link, To } from 'react-router-dom';
 
 type Props = {
-	title: String;
+	title: string;
 	url: To;
 };
 

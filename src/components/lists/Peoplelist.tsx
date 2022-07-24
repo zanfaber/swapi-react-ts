@@ -1,51 +1,26 @@
-import { useEffect, useState, useRef } from 'react';
-
 import { API_PEOPLE } from '../../api/endpoints';
-import simpleKeyFromUrl from '../../utils/getSimpleKey';
-import getResourceId from '../../utils/getResourceId';
+import useFetch from '../../hooks/useFetch';
 import Cardwrapper from '../ui/Cardwrapper';
 import Card from '../ui/Card';
 import Cardcharacter from '../ui/Cardcharacter';
 import { Loader } from '../ui/Loader';
+import simpleKeyFromUrl from '../../utils/getSimpleKey';
+import getResourceId from '../../utils/getResourceId';
 import { Character } from '../../ts/interfaces';
 
-const Peoplelist = () => {
-	const [people, setPeople] = useState([] as Character[]);
-
-	// to prevent response if unmounted before commpleting fetch...
-	const cancelRequest = useRef<boolean>(false);
-	useEffect(() => {
-		cancelRequest.current = false;
-
-		const fetchData = async () => {
-			try {
-				const response = await fetch(API_PEOPLE);
-				if (!response.ok) {
-					throw new Error(response.statusText);
-				}
-				const data = await response.json();
-				if (cancelRequest.current) return;
-				setPeople(data.results);
-			} catch (error) {
-				if (cancelRequest.current) return;
-			}
-		};
-		fetchData();
-
-		return () => {
-			cancelRequest.current = true;
-		};
-	}, []);
+const Peoplelist: React.FC = () => {
+	const { response, error, loading } = useFetch(API_PEOPLE);
 
 	return (
 		<>
-			{people && people.length > 0 ? (
+			{loading && <Loader />}
+			{response && response.length > 0 && (
 				<>
 					<h1 className="p-4 pb-2 text-4xl font-extrabold text-zinc-700">
 						People
 					</h1>
 					<Cardwrapper>
-						{people.map((character) => {
+						{response.map((character: Character) => {
 							// not the best but quick
 							// TODO find better solution... maybe a library?
 							const key = simpleKeyFromUrl(character.url.toString());
@@ -61,8 +36,6 @@ const Peoplelist = () => {
 						})}
 					</Cardwrapper>
 				</>
-			) : (
-				<Loader />
 			)}
 		</>
 	);

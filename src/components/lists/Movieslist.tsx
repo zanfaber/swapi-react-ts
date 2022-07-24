@@ -1,51 +1,26 @@
-import { useEffect, useState, useRef } from 'react';
-import { Loader } from '../ui/Loader';
-import { Movie } from '../../ts/interfaces';
-
+import { API_MOVIES } from '../../api/endpoints';
+import useFetch from '../../hooks/useFetch';
 import simpleKeyFromUrl from '../../utils/getSimpleKey';
 import getResourceId from '../../utils/getResourceId';
 import Cardwrapper from '../ui/Cardwrapper';
 import Card from '../ui/Card';
 import Cardmovie from '../ui/Cardmovie';
-import { API_MOVIES } from '../../api/endpoints';
+import { Loader } from '../ui/Loader';
+import { Movie } from '../../ts/interfaces';
 
-const Movieslist = () => {
-	const [movies, setMovies] = useState([] as Movie[]);
-
-	// to prevent response if unmounted before commpleting fetch...
-	const cancelRequest = useRef<boolean>(false);
-	useEffect(() => {
-		cancelRequest.current = false;
-
-		const fetchData = async () => {
-			try {
-				const response = await fetch(API_MOVIES);
-				if (!response.ok) {
-					throw new Error(response.statusText);
-				}
-				const data = await response.json();
-				if (cancelRequest.current) return;
-				setMovies(data.results);
-			} catch (error) {
-				if (cancelRequest.current) return;
-			}
-		};
-		fetchData();
-
-		return () => {
-			cancelRequest.current = true;
-		};
-	}, []);
+const Movieslist: React.FC = () => {
+	const { response, error, loading } = useFetch(API_MOVIES);
 
 	return (
 		<>
-			{movies && movies.length > 0 ? (
+			{loading && <Loader />}
+			{response && response.length > 0 && (
 				<>
 					<h1 className="p-4 pb-2 text-4xl font-extrabold text-zinc-700">
 						Movies
 					</h1>
 					<Cardwrapper>
-						{movies.map((movie) => {
+						{response.map((movie: Movie) => {
 							// not the best but quick
 							// TODO find better solution... maybe a library?
 							const key = simpleKeyFromUrl(movie.url.toString());
@@ -61,8 +36,6 @@ const Movieslist = () => {
 						})}
 					</Cardwrapper>
 				</>
-			) : (
-				<Loader />
 			)}
 		</>
 	);

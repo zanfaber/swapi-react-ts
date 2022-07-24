@@ -25,8 +25,8 @@ _enhancements_
 - [x] Back button
 - [ ] Components for People and Movies infos
 - [x] API endpoint as constant in single external file
-- [ ] Fetch logic of components as external function or, better, custom hook  
-- [ ] Implement Abort Controller for fetch calls
+- [x] Fetch logic of components as external function or, better, custom hook  
+- [x] Implement Abort Controller for fetch calls
 - [ ] Different UI/functionality for home? Search?
 - [ ] Pagination for People
 - [ ] Advanced styling and Tailwind customization

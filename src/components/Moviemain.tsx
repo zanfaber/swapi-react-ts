@@ -1,15 +1,20 @@
 import React from 'react';
+import { useNavigationType } from 'react-router-dom';
 
-import { Movie as MovieInterface } from '../ts/interfaces';
+import BackButton from './ui/BackButton';
 import romanizeNumber from '../utils/romanizeNumber';
+import { Movie as MovieInterface } from '../ts/interfaces';
 
 type Props = {
 	movie: MovieInterface;
 };
 
 const Moviemain: React.FC<Props> = ({ movie }) => {
+	let navtype = useNavigationType();
+
 	return (
 		<div className="mx-auto max-w-prose overflow-hidden p-4">
+			{navtype === 'PUSH' && <BackButton />}
 			<h1 className="mt-4 text-4xl font-bold">{movie.title}</h1>
 			<h2 className="mb-4 text-2xl font-light text-zinc-500">{`Episode ${romanizeNumber(
 				movie.episode_id

@@ -1,38 +1,38 @@
 import { To } from 'react-router-dom';
 
 interface Character {
-	name: String;
-	height: String;
-	mass: String;
-	hair_color: String;
-	skin_color: String;
-	eye_color: String;
-	birth_year: String;
-	gender: String;
-	homeworld: String;
-	films: Array<String>;
-	species: Array<String>;
-	vehicles: Array<String>;
-	starships: Array<String>;
-	created: String;
-	edited: String;
+	name: string;
+	height: string;
+	mass: string;
+	hair_color: string;
+	skin_color: string;
+	eye_color: string;
+	birth_year: string;
+	gender: string;
+	homeworld: string;
+	films: Array<string>;
+	species: Array<string>;
+	vehicles: Array<string>;
+	starships: Array<string>;
+	created: string;
+	edited: string;
 	url: To;
 }
 
 interface Movie {
-	title: String;
+	title: string;
 	episode_id: number;
-	opening_crawl: String;
-	director: String;
-	producer: String;
-	release_date: String;
-	characters: Array<String>;
-	planets: Array<String>;
-	starships: Array<String>;
-	vehicles: Array<String>;
-	species: Array<String>;
-	created: String;
-	edited: String;
+	opening_crawl: string;
+	director: string;
+	producer: string;
+	release_date: string;
+	characters: Array<string>;
+	planets: Array<string>;
+	starships: Array<string>;
+	vehicles: Array<string>;
+	species: Array<string>;
+	created: string;
+	edited: string;
 	url: To;
 }
 

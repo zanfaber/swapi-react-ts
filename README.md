@@ -9,6 +9,8 @@ A simple implementation of [SWApi.dev](https://swapi.dev/) with [Create React Ap
 
 ## To do
 
+_initial requests_ 
+
 - [x] Routing logic  
 - [x] List characters  
 - [x] List movies  
@@ -16,16 +18,19 @@ A simple implementation of [SWApi.dev](https://swapi.dev/) with [Create React Ap
 - [x] Character card  
 - [x] Movie page  
 - [x] Character page  
-- [x] Basic styling with Tailwind  
+- [x] Basic styling with Tailwind
+
+_enhancements_ 
+
+- [x] Back button
+- [ ] Components for People and Movies infos
+- [x] API endpoint as constant in single external file
+- [x] Fetch logic of components as external function or, better, custom hook  
+- [x] Implement Abort Controller for fetch calls
 - [ ] Different UI/functionality for home? Search?
 - [ ] Pagination for People
-- [ ] Back button
-- [ ] Components for People and Movies infos
 - [ ] Advanced styling and Tailwind customization
 - [ ] Planets ?
-- [ ] API endpoint as constant in single external file
-- [ ] Fetch logic of components as external function or, better, custom hook  
-- [ ] Implement Abort Controller for fetch calls
 - [ ] Better solution for list keys (library?)
 
 ## Available Scripts

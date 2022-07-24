@@ -1,16 +1,21 @@
 import React from 'react';
+import { useNavigationType } from 'react-router-dom';
 
-import { Character as CharacterInterface } from '../ts/interfaces';
 import Charactermovies from './lists/Charactermovieslist';
+import BackButton from './ui/BackButton';
+import { Character as CharacterInterface } from '../ts/interfaces';
 
 type Props = {
 	character: CharacterInterface;
 };
 
 const Charactermain: React.FC<Props> = ({ character }) => {
+	let navtype = useNavigationType();
+
 	return (
 		<>
 			<div className="p-4">
+				{navtype === 'PUSH' && <BackButton />}
 				<h1 className="mt-4 pb-2 text-4xl font-bold">{character.name}</h1>
 				<dl className="char-dl pt-4 pb-2">
 					<dt className="char-dt">Birth year</dt>
